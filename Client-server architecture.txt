@@ -1,0 +1,169 @@
+Client_Server
+1) Read about client-server architecture
+Client-server architecture can also alternatively be called a client-server model. It is a network application breakind down tasks and workloads between clients and servers thar located on the same system or are linked by a computer network.
+To sum the interaction process up briefly:
+1. The client sends their request via a network-enabled device
+2. The network server accepts and processes the user request
+3. Finally, the server delivers the reply to the client
+
+The client-server network model brings a higher level of processing that increases the effectiveness of workstation power, workgroup empowerment, remote network management, market-driven business, and the preservation of existing investments.
+
+2) What do HTTP and HTTPS mean?
+HTTP stands for Hypertext Transfer Protocol. It is a prescribed order and syntax for presenting information used for transferring data over a network. Two main kind of HTTP messages are requests and responses.
+HTTP request are created by a user's browser as he interacts with web properties. 
+HTTP requests go to either an origin server or a proxy caching server generating an HTTP response.
+An HTTP request consists of lines of text that follow the HTTP protocol. E.g., a GET request might look this way:
+GET /hello.txt HTTP/1.1
+User-Agent: curl/7.63.0 libcurl/7.63.0 OpenSSL/1.1.l zlib/1.2.11
+Host: www.example.com
+Accept-Language: en
+
+The problem is that if a website uses HTTP instead of HTTPS, anyone monitoring the session can read requests and responses
+
+HTTPS is HTTP with encryption. "S" stands for "secure".
+HTTP uses TLS (SSL) to encrypt normal HTTP requests and responses. As a result, a site that uses HTTPS in its URL is far more secure than a site using HTTP.
+TLS works due to a technology called public key encryption: there are two keys - a public and a private key. The public key is shared with client devices via the server's SSL certificate. When a client connects to a server, the two devices use the public and private key to agree on new keys - session keys. It helps to encrypt further communications between the client and the server.
+
+3) HTTP-methods
+HTTP defines a set of request methods to indicate the desired action to be performed for a given resource.
+Each of them implements a different semantic, but some common features are shared by a group of them: e.g. a request method can be safe, idempotent, or cacheable.
+
+GET
+The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.
+
+HEAD
+The HEAD method asks for a response identical to a GET request, but without the response body.
+
+POST
+The POST method submits an entity to the specified resource, often causing a change in state or side effects on the server.
+
+PUT
+The PUT method replaces all current representations of the target resource with the request payload.
+
+DELETE
+The DELETE method deletes the specified resource.
+
+CONNECT
+The CONNECT method establishes a tunnel to the server identified by the target resource.
+
+OPTIONS
+The OPTIONS method describes the communication options for the target resource.
+
+TRACE
+The TRACE method performs a message loop-back test along the path to the target resource.
+
+PATCH
+The PATCH method applies partial modifications to a resource.
+
+4) HTTP status-codes of a server
+All HTTP response status codes are separated into five classes or categories. The first digit of the status code defines the class of response, while the last two digits do not have any classifying or categorization role. 
+There are five classes defined by the standard:
+1xx informational response – the request was received, continuing process
+2xx successful – the request was successfully received, understood, and accepted
+3xx redirection – further action needs to be taken in order to complete the request
+4xx client error – the request contains bad syntax or cannot be fulfilled
+5xx server error – the server failed to fulfil an apparently valid request
+
+5) What is a core/engine of a browser?
+Engine of a browser is a core software component of every major web browser. The primary job of a browser engine is to transform HTML documents and other resources of a web page into an interactive visual representation on a user's device.
+Browser engines are used in other types of programs besides web browsers. Email clients need them to display HTML email. 
+The Electron framework, which is powered by the two engines of the Google Chrome browser, has been used to create many applications.
+
+6) Different browsers cores:
+Webkit Browser Rendering Engine(Safari)
+Blink Browser Rendering Engine(Google Chrome & Opera)
+Gecko Browser Rendering Engine(Mozilla Firefox)
+Trident Browser Rendering Engine(Internet Explorer)
+EdgeHTML Browser Rendering Engine(Edge)
+Presto Browser Rendering Engine (Opera Version 7 – 15)
+
+7) What is an API (Application Programming Interface)?
+API - is the code that allows two software programs to communicate with each other.
+
+8. What are API's endpoints?
+It is a point at whicn an API connects with the software program. It works by sending requests for information from a web application or web server and receving a response.
+Systems that communicate through APIs are integrated systems. 
+One side sends the information to the API and is called the server. The other side, the client, makes the requests and manipulates the API. 
+The server side that provides the requested information, or resources, is the API endpoint.
+For an effective request to be processed by the endpoint, the client must provide a uniform resource locator (URL), a method, a list of headers and a body.
+The headers provide metadata about a request and the body holds the data sent by the client to the server.
+
+The code used in placing a request for a specific statistics page on the NBA's web site might read:
+
+GET https://stats.nba.com/stats/allstarballotpredictor
+
+In this example GET is the method while the endpoint is the specific portion of the web address noted as /stats/allstarballotpredictor. 
+
+9) URL (URI, URL, URN)
+URI (Uniform Resource Identifier) is a unique sequence of characters that identifies a logical or physical resource used by web technologies.
+
+URL (Uniform Resource Locator) can be defined as a string that denotes the location of a given resource on the Internet: a web page, an image, a mailbox, etc.
+
+URN (Uniform Resource Name) scope is to identify resources in a permanent way, even after that resource does not exist anymore.
+Unlike a URL, a URN doesn't provide any information about locating the resource but simply identifies it, just like a pure URI.
+
+10) Idempotent HTTP methods
+There are two main properties of HTTP methods: idempotency and safety. HTTP Request for Comments describes these properties and shows which methods are idempotent and safe. Server application should make sure to implement the idempotent and safe semantic correctly as a client might expect it.
+
+These are the methods which give the same result every time they executed. It doesn't matter if a request is sent once or multiple times. All safe methods are idempotent, PUT and DELETE are idempotent but not safe. We have to consider that idempotency doesn't mean the same response from the server on each request. A good example can be is a DELETE method. The second time of executing will give us the message meaning that the project has already been deleted but it hasn't changed the server state.
+This property is a positive thing for an API because it makes API more fault-tolerant. If there is an issue on the client side and request are send multiple times it won't create any problems on the server side.
+
+11) Safe HTTP methods
+HTTP methods are considered to be safe when they do not alter the server state. They are used for read-only operations. HTTP RFC says that methods GET, HEAD, OPTIONS and TRACE are safe.
+Although in practice it is often impossible to implement safe methods the way that they do not change any server state. But the most important distinction for the safety in that case is that the user did not request side-effects using the method, therefore he cannot be held accountable for them.
+
+The methods that are neither safe nor idempotent: POST, PATCH.
+
+12) Identification, Authentification, Authorization
+Identification is a procedure that brings an identificator to a subject of identification, univocally defining this subject in the information system.
+
+Authentification - a procedure of users genuineness checking, for instance, comparing the password the user inputted with the password preserved in the database.
+
+Authorization - granting a person of a group of people the rights to carry out definite actions.
+
+13) What is an IP address?
+IP stands for "Internet Protocol". Address underlines its unique number that gets linked to all online activity a user performs.
+It is responsible for addressing, delivering and routing online requests precisely. It attaches an "electronic return address" to all user's online requests and activity.
+
+14) What are octets in DNS?
+In computer and network technology, an octet represents an 8-bit quantity. Octets range in mathematical value from 0 to 255.
+
+The term octet string refers to a collection of any number of related octets. Octet strings are commonly found in Internet protocol (IP) addressing, in which the four bytes of an IPv4 address consist of four octets. 
+In dotted-decimal notation, an IP address appears as [octet].[octet].[octet].[octet], as in 192.168.0.1.
+
+An IPv6 address contains 16 octets rather than four. 
+Whereas IPv4 notation separates every single octet with a dot (.), IPv6 notation separates pairs of octets with a colon(:), for example, [octet][octet]:[octet][octet]: ... :[octet][octet].
+
+15) What is a port, how many ports has a Linux server?
+In computer networking, and more definitely in software terms, a port is a logical entity which acts as a endpoint of communication to identify a given application or process on an Linux operating system. 
+It is a 16-bit number (0 to 65535) which differentiates one application from another on end systems.
+Below are the different categories of ports:
+
+0-1023 – the Well Known Ports, also referred to as System Ports.
+1024-49151 – the Registered Ports, also known as User Ports.
+49152-65535 – the Dynamic Ports, also referred to as the Private Ports.
+
+16) OSI layers
+Abbreviation OSI means Open Systems Interconnection. OSI model is model enabling diverse communication systems to communicate using standard protocols.
+This model is based on the concept of splitting up a communication system into seven layers, each one stacked upon the last:
+I. Physical layer
+II. Datalink
+III. Network
+IV. Transport
+V. Session
+VI. Presentation
+VII. Applcations
+
+OSI model helps to break down a problem and distinct the source of the trouble to avoid a lot of unneccesary work.
+
+17) HTTP requests headers
+
+Thanks to http headers the client and the server transfer additional information with an HTTP request or response. An HTTP header contains its case-insensitive name followe by a colon, then by its value. Is there is a white space before a value, it is ignored.
+Headers are grouped on the basis of their context:
+1. Request headers: contain more information about the resource to be fetched, or about the client requesting the resource.
+2. Response: hold extra info about the response, for instance, its location or about the server providing it.
+3. Representation: info about the body of the resource, like its MIME (Multipurpose Internet Mail Extensions) type, or encoding/compression applied.
+4. Payload: representation-independent info about payload data, including content length and the encoding used for transport.
+
+Headers can be divided by how proxies handle them: Connection, Keep-Alive, Proxy-Authenticate, Proxe-Authorization, TE, Trailer, Transfer-Encoding, Upgrade.
+Also there are End-to-end and Hop-by-hop headers.
